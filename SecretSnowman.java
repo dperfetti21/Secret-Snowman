@@ -44,7 +44,7 @@ public class SecretSnowman
                     System.out.println("you are the only one");
                     return;
                 }
-                if(r == two.size())
+                if(r == two.size()-1)
                 {
                     System.out.println(two.get(r) + " is buying a gift for " 
                         + two.get(0));
