@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class SecretSnowman here.
  *
@@ -13,12 +12,12 @@ public class SecretSnowman
 {
     public static void main (String[] args)
     {
-        ArrayList<String> buyer= new ArrayList<String>();
-        ArrayList<String> giver= new ArrayList<String>();
+        ArrayList<String> one= new ArrayList<String>();
+        ArrayList<String> two= new ArrayList<String>();
         Scanner myFile;
         try
         {
-            myFile = new Scanner(new File("names.txT"));
+            myFile = new Scanner(new File("names.txt"));
         }
         catch (java.io.FileNotFoundException e)
         {
@@ -26,12 +25,26 @@ public class SecretSnowman
             return;
         }
         while(myFile.hasNextLine())
-        {
+         {
             String line = myFile.nextLine();
-            buyer.add(line);
-            for (int i = 0; i< buyer.size()/2; i++)
+            one.add(line);
+           
+            int i = 0;
+            while(i < one.size()-1);
             {
-                giver.add(line);
+                int object = (int)Math.random()*one.size();
+                two.add(two.get(i));
+                one.remove(i);
+            }
+            for(int r = 0; r < two.size(); r ++)
+            {
+                System.out.println(two.get(r) 
+                + "is buying a gift for" + two.get(r+1));
+                if(r == two.size())
+                {
+                    System.out.println(two.get(r) + "is buying a gift for" 
+                    + two.get(0));
+                }
             }
         }
         
