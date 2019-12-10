@@ -25,29 +25,37 @@ public class SecretSnowman
             return;
         }
         while(myFile.hasNextLine())
-         {
-            String line = myFile.nextLine();
-            one.add(line);
-           
-            int i = 0;
-            while(i < one.size()-1);
+        {
+            while(myFile.hasNextLine())
             {
-                int object = (int)Math.random()*one.size();
-                two.add(two.get(i));
-                one.remove(i);
+             String line = myFile.nextLine();
+             one.add(line);
             }
-            for(int r = 0; r < two.size(); r ++)
+            while(0 < one.size())
             {
-                System.out.println(two.get(r) 
-                + "is buying a gift for" + two.get(r+1));
+                int object = (int)(Math.random()*one.size());
+                two.add(one.get(object));
+                one.remove(object);
+            }
+            for(int r = 0; r < two.size(); r++)
+            {
+                if(two.size() == 1)
+                {   
+                    System.out.println("you are the only one");
+                    return;
+                }
                 if(r == two.size())
                 {
-                    System.out.println(two.get(r) + "is buying a gift for" 
-                    + two.get(0));
+                    System.out.println(two.get(r) + " is buying a gift for " 
+                        + two.get(0));
                 }
+
+                else    
+                    System.out.println(two.get(r) + " is buying a gift for "
+                        + two.get(r+1));
             }
         }
-        
+
     }
 }
 
