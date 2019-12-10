@@ -13,16 +13,28 @@ public class SecretSnowman
 {
     public static void main (String[] args)
     {
-     ArrayList<String>Buyer= new ArrayList<String>();
-     ArrayList<String>Giver= new ArrayList<String>();
-    } 
-    public static void readInput() 
-     {
-        Scanner myFile = new Scanner (new File("names.txt"));
-
-    
-     
-    }   
+        ArrayList<String> buyer= new ArrayList<String>();
+        ArrayList<String> giver= new ArrayList<String>();
+        Scanner myFile;
+        try
+        {
+            myFile = new Scanner(new File("names.txT"));
+        }
+        catch (java.io.FileNotFoundException e)
+        {
+            System.out.println("FileNotFoundException: " + e.getMessage());
+            return;
+        }
+        while(myFile.hasNextLine())
+        {
+            String line = myFile.nextLine();
+            buyer.add(line);
+            for (int i = 0; i< buyer.size()/2; i++)
+            {
+                giver.add(line);
+            }
+        }
+        
+    }
 }
-
 
